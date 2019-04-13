@@ -1,16 +1,21 @@
 package com.springboot.springbootapp;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component
+@Service
 public class ShoppingCard {
 
-    private List<Product> productList;
+    public List<Product> productList;
 
     public void addProductToShoppingCard(Product product){
         productList.add(product);
+    }
+
+    public String getList(){
+        return productList.toString();
     }
 
 
