@@ -1,10 +1,12 @@
 package com.springboot.springbootapp.service;
 
 import com.springboot.springbootapp.model.Medicine;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+@Component
 public class PharmacyService {
 
     private int medicineIdCount = 1;
