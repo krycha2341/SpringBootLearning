@@ -34,7 +34,7 @@ public class PharmacyService {
     public Medicine getDrugByName(String drugName){
         return medicineList
                 .stream()
-                .filter(c -> c.getDrugName() == drugName)
+                .filter(c -> c.getDrugName().equals(drugName))
                 .findFirst()
                 .get();
     }
@@ -43,12 +43,12 @@ public class PharmacyService {
         medicineList
                 .stream()
                 .forEach(c->{
-                    if(c.getDrugName()==drugName)
+                    if(c.getDrugName().equals(drugName))
                     {
                      c.setNumberOfDrugs(c.getNumberOfDrugs()+numberOfDrugAdded);
                     }
                 });
-        return medicineList.stream().filter(c->c.getDrugName()==drugName).findFirst().get();
+        return medicineList.stream().filter(c->c.getDrugName().equals(drugName)).findFirst().get();
     }
 
     public void deleteMedicine(int medicineId){

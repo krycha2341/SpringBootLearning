@@ -30,4 +30,10 @@ public class PharmacyResource {
     public Medicine getDrugByName(@PathVariable("drugName") String drugName){
         return pharmacyService.getDrugByName(drugName);
     }
+
+    @PutMapping(value = "/{drugName}")
+    public Medicine updateMedicineNumber(@PathVariable("drugName") String drugName, @RequestParam int number){
+        return pharmacyService.updateMedicineNumber(drugName,number);
+    }
+
 }
