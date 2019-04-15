@@ -1,9 +1,14 @@
 package com.springboot.springbootapp.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Medicine {
 
+    @JsonProperty("id")
     private int medicineId;
+    @JsonProperty("drugName")
     private String drugName;
+    @JsonProperty("inMagazine")
     private int numberOfDrugs;
 
     public int getMedicineId() {
