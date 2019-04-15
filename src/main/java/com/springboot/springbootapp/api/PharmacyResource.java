@@ -31,9 +31,19 @@ public class PharmacyResource {
         return pharmacyService.getDrugByName(drugName);
     }
 
+    @GetMapping(value="/id/{medicineId}")
+    public Medicine getDrugById(@PathVariable("medicineId") int medicineId){
+        return pharmacyService.getDrugById(medicineId);
+    }
+
     @PutMapping(value = "/{drugName}")
     public Medicine updateMedicineNumber(@PathVariable("drugName") String drugName, @RequestParam int number){
         return pharmacyService.updateMedicineNumber(drugName,number);
+    }
+
+    @DeleteMapping(value = "/{medicineId}")
+    public void deleteMedicine(@PathVariable("medicineId") int medicineId){
+        pharmacyService.deleteMedicine(medicineId);
     }
 
 }
