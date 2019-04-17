@@ -36,10 +36,16 @@ public class PharmacyResource {
         return pharmacyService.getDrugById(medicineId);
     }
 
-    @PutMapping(value = "/{drugName}")
-    public Medicine updateMedicineNumber(@PathVariable("drugName") String drugName, @RequestParam int number){
-        return pharmacyService.updateMedicineNumber(drugName,number);
+    @PutMapping(value = "/{medicineId}")
+    public Medicine updateMedicineNumber(@PathVariable("medicineId") int medicineId, @RequestBody Medicine medicine){
+        return pharmacyService.updateMedicineNumber(medicineId,medicine);
     }
+//idk how to update by name :( keep searching for solution
+
+/*    @PutMapping(value = "/update/{drugName}")
+    public Medicine updateMedicineByName(@PathVariable("drugName") String drugName,@RequestBody Medicine medicine){
+        return pharmacyService.updateMedicineByName(drugName,medicine);
+    }*/
 
     @DeleteMapping(value = "/{medicineId}")
     public void deleteMedicine(@PathVariable("medicineId") int medicineId){
