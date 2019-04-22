@@ -5,8 +5,6 @@ import com.springboot.springbootapp.model.Medicine;
 import com.springboot.springbootapp.service.PharmacyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 @RestController
@@ -26,10 +24,6 @@ public class PharmacyResource {
         return pharmacyService.getMedicineList();
     }
 
-    @GetMapping(value="/{drugName}")
-    public Medicine getDrugByName(@PathVariable("drugName") String drugName){
-        return pharmacyService.getDrugByName(drugName);
-    }
 
     @GetMapping(value="/id/{medicineId}")
     public Medicine getDrugById(@PathVariable("medicineId") int medicineId){
@@ -40,12 +34,7 @@ public class PharmacyResource {
     public Medicine updateMedicineNumber(@PathVariable("medicineId") int medicineId, @RequestBody Medicine medicine){
         return pharmacyService.updateMedicineNumber(medicineId,medicine);
     }
-//idk how to update by name :( keep searching for solution
 
-/*    @PutMapping(value = "/update/{drugName}")
-    public Medicine updateMedicineByName(@PathVariable("drugName") String drugName,@RequestBody Medicine medicine){
-        return pharmacyService.updateMedicineByName(drugName,medicine);
-    }*/
 
     @DeleteMapping(value = "/{medicineId}")
     public void deleteMedicine(@PathVariable("medicineId") int medicineId){
