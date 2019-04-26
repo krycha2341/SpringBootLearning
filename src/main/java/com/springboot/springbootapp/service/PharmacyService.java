@@ -21,8 +21,8 @@ public class PharmacyService {
     }
 
     public List<Medicine> getMedicineList(){
-        //return medicineList;
         return pharmacyDAO.findAll();
+
     }
 
     public Medicine getDrugById(int medicineId){
