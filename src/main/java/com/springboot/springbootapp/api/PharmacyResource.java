@@ -1,11 +1,12 @@
 package com.springboot.springbootapp.api;
 
-
 import com.springboot.springbootapp.model.Medicine;
 import com.springboot.springbootapp.service.PharmacyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+
 
 @RestController
 @RequestMapping(value = "/medicines")
@@ -20,8 +21,8 @@ public class PharmacyResource {
     }
 
     @GetMapping
-    public List<Medicine> getMedicineList(){
-        return pharmacyService.getMedicineList();
+    public Iterable<Medicine> getAllMedicine(){
+        return pharmacyService.getAllMedicine();
     }
 
 

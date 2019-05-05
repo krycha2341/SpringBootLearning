@@ -10,7 +10,6 @@ import java.util.List;
 @Repository
 public interface PharmacyDAO extends CrudRepository<Medicine, Integer>{
 
-    @Override
-    List<Medicine> findAll();
+
 
 }

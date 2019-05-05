@@ -1,11 +1,14 @@
 package com.springboot.springbootapp.service;
 
 import com.springboot.springbootapp.dao.PharmacyDAO;
+import com.springboot.springbootapp.exception.MedicineNotFoundException;
 import com.springboot.springbootapp.model.Medicine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 
 @Component
@@ -20,12 +23,17 @@ public class PharmacyService {
         return pharmacyDAO.save(medicine);
     }
 
-    public List<Medicine> getMedicineList(){
+    public Iterable<Medicine> getAllMedicine(){
         return pharmacyDAO.findAll();
 
     }
 
     public Medicine getDrugById(int medicineId){
+        Optional<Medicine> optionalMedicine = pharmacyDAO.findById(medicineId);
+
+        if(!optionalMedicine.isPresent()){
+            throw new MedicineNotFoundException("Medicine not exist!");
+        }
 
         return pharmacyDAO.findById(medicineId).get();
     }
