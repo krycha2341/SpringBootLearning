@@ -7,7 +7,7 @@ import javax.servlet.*;
 import java.io.IOException;
 
 @Component
-@Order(2)
+
 public class NewFilter implements Filter {
 
     @Override
