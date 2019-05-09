@@ -15,10 +15,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
-@EnableWebSecurity
+
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
+    @Bean
     protected UserDetailsService userDetailsService() {
 
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
