@@ -2,10 +2,7 @@ package com.springboot.springbootapp.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Medicine {
@@ -13,6 +10,7 @@ public class Medicine {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonProperty("id")
+    @Column(name="id")
     private int medicineId;
     @JsonProperty("drugName")
     private String drugName;
@@ -41,5 +39,9 @@ public class Medicine {
 
     public void setNumberOfDrugs(int numberOfDrugs) {
         this.numberOfDrugs = numberOfDrugs;
+    }
+
+    public String toString(){
+        return medicineId + "|" + drugName + "|" + numberOfDrugs;
     }
 }
